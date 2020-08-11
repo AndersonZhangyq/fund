@@ -11,7 +11,7 @@ jobs:
       run:
         working-directory: gui-version/vue
     steps:
-      - run: pwd
+      - run: echo %cd%
       - uses: actions/checkout@v2
       - name: Use Node.js 14.x
         uses: actions/setup-node@v1
