@@ -15,14 +15,18 @@ jobs:
         working-directory: gui-version/vue
     steps:
       - uses: actions/checkout@v2
+        
       - name: Use Node.js 14.x
         uses: actions/setup-node@v1
         with:
           node-version: 14.x
+
       - uses: actions/setup-python@v2
+      
       - uses: BSFishy/pip-action@v1
         with:
           requirements: gui-version/vue/requirements.txt
+      
       - run: npm i
       - run: npm run build
       - run: python -m eel app.py web --onefile
