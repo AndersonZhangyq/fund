@@ -2,10 +2,6 @@ name: Package Application with Pyinstaller
 
 on:
   workflow_dispatch:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
 
 jobs:
   build:
@@ -15,20 +11,21 @@ jobs:
       run:
         working-directory: gui-version/vue
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js 14.x
-      uses: actions/setup-node@v1
-      with:
-        node-version: 14.x
-    - uses: actions/setup-python@v2
-    - uses: BSFishy/pip-action@v1
-      with:
-        requirements: requirements.txt
-    - run: npm ci
-    - run: npm run build
-    - run: python -m eel app.py web --onefile
+      - run: pwd
+      - uses: actions/checkout@v2
+      - name: Use Node.js 14.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+      - uses: actions/setup-python@v2
+      - uses: BSFishy/pip-action@v1
+        with:
+          requirements: requirements.txt
+      - run: npm ci
+      - run: npm run build
+      - run: python -m eel app.py web --onefile
 
-#     - uses: actions/upload-artifact@v2
-#       with:
-#         name: name-of-artifact
-#         path: src/dist/windows
+  #     - uses: actions/upload-artifact@v2
+  #       with:
+  #         name: name-of-artifact
+  #         path: src/dist/windows
