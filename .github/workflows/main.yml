@@ -27,7 +27,7 @@ jobs:
       - run: npm i
       - run: npm run build
       - run: python -m eel app.py web --onefile
-
+      - run: ./script.sh
       - uses: actions/upload-artifact@v2
         with:
           name: app.zip
