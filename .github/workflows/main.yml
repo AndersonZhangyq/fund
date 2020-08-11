@@ -27,7 +27,7 @@ jobs:
       - run: npm run build
       - run: python -m eel app.py web --onefile
 
-  #     - uses: actions/upload-artifact@v2
-  #       with:
-  #         name: name-of-artifact
-  #         path: src/dist/windows
+      - uses: actions/upload-artifact@v2
+        with:
+          name: app.zip
+          path: .
