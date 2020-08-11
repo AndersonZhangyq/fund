@@ -14,7 +14,6 @@ jobs:
       run:
         working-directory: gui-version/vue
     steps:
-      - run: ls -l
       - uses: actions/checkout@v2
       - name: Use Node.js 14.x
         uses: actions/setup-node@v1
@@ -27,8 +26,8 @@ jobs:
       - run: npm i
       - run: npm run build
       - run: python -m eel app.py web --onefile
-      - run: ./script.sh
+        
       - uses: actions/upload-artifact@v2
         with:
           name: app.zip
-          path: ./dist
+          path: gui-version/vue/dist
