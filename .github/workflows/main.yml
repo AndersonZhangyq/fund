@@ -29,5 +29,5 @@ jobs:
         
       - uses: actions/upload-artifact@v2
         with:
-          name: app.zip
+          name: app
           path: gui-version/vue/dist
